@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ImageloaderTest"
 include(":app")
- 
+include(":benchmark")

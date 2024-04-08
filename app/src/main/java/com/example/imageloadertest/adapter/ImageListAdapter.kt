@@ -51,8 +51,8 @@ class ImageListAdapter(data: List<String>) : BaseQuickAdapter<String, ImageListA
             var url = item
             var startTime: Long = 0
             var endTime: Long = 0
+            startTime = SystemClock.uptimeMillis()
             if (isGlide) {
-                startTime = SystemClock.uptimeMillis()
                 Glide.with(context).load(item)
                     .into(object : CustomTarget<Drawable>() {
                         override fun onResourceReady(
@@ -62,8 +62,9 @@ class ImageListAdapter(data: List<String>) : BaseQuickAdapter<String, ImageListA
                             endTime = SystemClock.uptimeMillis() // 获取结束时间
                             LogUtils.d(
                                 "glide TestTime",
-                                "onSuccess  item:" + item + "Runtime: " + (endTime - startTime)
+                                "onSuccess position: " + holder.bindingAdapterPosition + "  item:" + item + "   Runtime: " + (endTime - startTime)
                             )
+                            holder.binding.image.setImageDrawable(resource)
                         }
 
                         override fun onLoadCleared(placeholder: Drawable?) {
@@ -74,6 +75,14 @@ class ImageListAdapter(data: List<String>) : BaseQuickAdapter<String, ImageListA
             } else {
                 holder.binding.image.load(url) {
                     error(R.mipmap.ic_launcher)
+                    target {
+                        endTime = SystemClock.uptimeMillis() // 获取结束时间
+                        LogUtils.d(
+                            "coil TestTime",
+                            "onSuccess position: " + holder.bindingAdapterPosition + "  item:" + item + "   Runtime: " + (endTime - startTime)
+                        )
+                        holder.binding.image.setImageDrawable(it)
+                    }
 //                listener(
 //                    onStart = { request ->
 //                        startTime = SystemClock.uptimeMillis()

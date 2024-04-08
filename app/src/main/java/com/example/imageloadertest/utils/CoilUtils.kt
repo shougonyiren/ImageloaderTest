@@ -36,7 +36,7 @@ class CoilUtils {
             return ImageLoader(context).newBuilder()
                 .memoryCachePolicy(CachePolicy.DISABLED)//关闭内存缓存策略
                 .diskCachePolicy(CachePolicy.DISABLED)//关闭磁盘缓存策略
-                .logger(DebugLogger())//开启调试记录
+//                .logger(DebugLogger())//开启调试记录
                 .build()
         }
 

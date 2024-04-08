@@ -16,6 +16,8 @@ glide = "4.16.0"
 coil = "2.6.0"
 baseRecyclerViewAdapterHelper = "4.0.3"
 utilcodex = "1.31.1"
+uiautomator = "2.2.0"
+benchmarkMacroJunit4 = "1.2.0-beta01"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,9 +36,12 @@ glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "gl
 coil = { group = "io.coil-kt", name = "coil", version.ref = "coil" }
 baseRecyclerViewAdapterHelper = { group = "io.github.cymchad", name = "BaseRecyclerViewAdapterHelper", version.ref = "baseRecyclerViewAdapterHelper" }
 blankjUtilcodex = { group = "com.blankj", name = "utilcodex", version.ref = "utilcodex" }
+androidx-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiautomator" }
+androidx-benchmark-macro-junit4 = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "benchmarkMacroJunit4" }
 
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+androidTest = { id = "com.android.test", version.ref = "agp" }
 
