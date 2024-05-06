@@ -17,6 +17,6 @@ class MyApplication : Application(),
 
     public override fun newImageLoader(): ImageLoader {
         //在这里可以自定义我们的CoilImageLoader
-        return CoilUtils.newNoCacheLoader(applicationContext)
+        return CoilUtils.newImageCacheLoader(applicationContext)
     }
 }

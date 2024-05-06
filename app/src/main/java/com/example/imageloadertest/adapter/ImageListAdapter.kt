@@ -11,6 +11,7 @@ import coil.ImageLoader
 import coil.load
 import com.blankj.utilcode.util.LogUtils
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.chad.library.adapter.base.BaseQuickAdapter
@@ -30,8 +31,7 @@ import com.example.imageloadertest.databinding.RcCommonImageBinding
 class ImageListAdapter(data: List<String>) : BaseQuickAdapter<String, ImageListAdapter.VH>(data) {
     var imageLoader: ImageLoader? = null
     var isGlide: Boolean = false
-
-    constructor(data: List<String>, imageLoader: ImageLoader, isGlide: Boolean) : this(data) {
+    constructor(data: List<String>, imageLoader: ImageLoader?, isGlide: Boolean) : this(data) {
         this.imageLoader = imageLoader;
         this.isGlide = isGlide
     }
@@ -54,6 +54,8 @@ class ImageListAdapter(data: List<String>) : BaseQuickAdapter<String, ImageListA
             startTime = SystemClock.uptimeMillis()
             if (isGlide) {
                 Glide.with(context).load(item)
+//                    .skipMemoryCache(true)
+//                    .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .into(object : CustomTarget<Drawable>() {
                         override fun onResourceReady(
                             resource: Drawable,

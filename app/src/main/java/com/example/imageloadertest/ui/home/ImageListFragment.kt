@@ -33,7 +33,7 @@ class ImageListFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         with(_binding) {
-            this!!.rvImageList.adapter = ImageListAdapter(TestUtils.list50kb)
+            this!!.rvImageList.adapter = ImageListAdapter(TestUtils.list50kb,null,false)
         }
 //        val textView: TextView = binding.textHome
 //        homeViewModel.text.observe(viewLifecycleOwner) {
